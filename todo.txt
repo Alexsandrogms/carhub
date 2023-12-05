@@ -6,16 +6,14 @@
     
 # Tela de Login:
   - Elementos:
-    [] Campos de entrada para e-mail e senha.
-    [] Botão "Entrar" para acessar a conta.
-    [] Opção "Esqueceu a senha?" para recuperação (opcional).
-    [] Link de registro para novos usuários.
+    [x] Campos de entrada para e-mail e senha.
+    [x] Botão "Entrar" para acessar a conta.
+    [x] Link de registro para novos usuários.
 
 # Tela de Registro (opcional):
   - Elementos:
-    [] Campos de entrada para informações de registro (nome, e-mail, senha, etc.).
-    [] Botão "Registrar" para criar uma nova conta.
-    [] Opção de login com contas de redes sociais (opcional).
+    [x] Campos de entrada para informações de registro (nome, e-mail, senha, etc.).
+    [x] Botão "Registrar" para criar uma nova conta.
 
 # Tela Home (Listagem de Carros):
   - Elementos:

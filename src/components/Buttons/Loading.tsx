@@ -11,12 +11,12 @@ interface ButtonLoadingProps extends TouchableOpacityProps {
 }
 
 export function ButtonLoading({
-  isLoading,
   text,
+  isLoading,
   ...rest
 }: ButtonLoadingProps) {
   const className = `
-    bg-black flex justify-center items-center rounded-xl p-4
+    flex bg-blue-600 justify-center items-center rounded-xl p-4
     ${isLoading ? 'opacity-80' : 'opacity-100'}
   `
 
