@@ -1,9 +1,14 @@
+# Tela de Boas vindas:
+  - Elementos:
+    [x] Adicionar logo.
+    [x] Adicionar slogan.
+    [x] Adicionar botão para redirecionar para tela de login.
+    
 # Tela de Login:
   - Elementos:
-    [] Campos de entrada para e-mail ou nome de usuário e senha.
+    [] Campos de entrada para e-mail e senha.
     [] Botão "Entrar" para acessar a conta.
-    [] Opção "Esqueceu a senha?" para recuperação.
-    [] Botões de login com contas de redes sociais (opcional).
+    [] Opção "Esqueceu a senha?" para recuperação (opcional).
     [] Link de registro para novos usuários.
 
 # Tela de Registro (opcional):
@@ -32,7 +37,7 @@
 
 # Fluxo de Interação:
   - Login/Registro:
-    [] Os usuários podem criar uma conta ou fazer login para acessar recursos exclusivos,     como salvar favoritos ou entrar em contato com vendedores.
+    [] Os usuários podem criar uma conta ou fazer login para acessar recursos exclusivos, como salvar favoritos ou entrar em contato com vendedores.
 
   - Explorar Carros:
     [] Na tela home, os usuários podem navegar pelos carros disponíveis usando filtros e ordenações.
