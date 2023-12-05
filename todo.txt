@@ -1,0 +1,44 @@
+# Tela de Login:
+  - Elementos:
+    [] Campos de entrada para e-mail ou nome de usuário e senha.
+    [] Botão "Entrar" para acessar a conta.
+    [] Opção "Esqueceu a senha?" para recuperação.
+    [] Botões de login com contas de redes sociais (opcional).
+    [] Link de registro para novos usuários.
+
+# Tela de Registro (opcional):
+  - Elementos:
+    [] Campos de entrada para informações de registro (nome, e-mail, senha, etc.).
+    [] Botão "Registrar" para criar uma nova conta.
+    [] Opção de login com contas de redes sociais (opcional).
+
+# Tela Home (Listagem de Carros):
+  - Elementos:
+    [] Barra de navegação com botões para acessar diferentes seções do aplicativo.
+    [] Barra de pesquisa para filtrar carros por modelo, marca, preço, etc.
+    [] Lista de carros com informações básicas (imagem, modelo, ano, preço).
+    [] Opções de ordenação e filtragem.
+    [] Botões para acessar informações detalhadas do carro.
+    [] Botões para entrar em contato com o vendedor ou salvar carros favoritos.
+
+# Tela Detalhes do Carro:
+  - Elementos:
+    [] Imagens do carro em destaque.
+    [] Informações detalhadas do carro (modelo, ano, preço, quilometragem, etc.).
+    [] Descrição do carro.
+    [] Botões para solicitar mais informações ou iniciar uma conversa com o vendedor.
+    [] Botão para salvar o carro como favorito.
+    [] Possibilidade de navegar para mais imagens ou seções detalhadas.
+
+# Fluxo de Interação:
+  - Login/Registro:
+    [] Os usuários podem criar uma conta ou fazer login para acessar recursos exclusivos,     como salvar favoritos ou entrar em contato com vendedores.
+
+  - Explorar Carros:
+    [] Na tela home, os usuários podem navegar pelos carros disponíveis usando filtros e ordenações.
+
+  - Detalhes do Carro:
+    [] Ao clicar em um carro, os usuários acessam a tela detalhada para obter informações mais profundas e entrar em contato com o vendedor.
+
+  - Interagir com Anúncios:
+    [] Os usuários podem salvar carros favoritos, enviar mensagens aos vendedores ou compartilhar anúncios.
