@@ -17,12 +17,10 @@
 
 # Tela Home (Listagem de Carros):
   - Elementos:
-    [] Barra de navegação com botões para acessar diferentes seções do aplicativo.
-    [] Barra de pesquisa para filtrar carros por modelo, marca, preço, etc.
-    [] Lista de carros com informações básicas (imagem, modelo, ano, preço).
-    [] Opções de ordenação e filtragem.
-    [] Botões para acessar informações detalhadas do carro.
-    [] Botões para entrar em contato com o vendedor ou salvar carros favoritos.
+    [x] Barra de pesquisa para filtrar carros por marca.
+    [x] Lista de carros com informações básicas (imagem, modelo, ano, preço).
+    [x] Botões para acessar informações detalhadas do carro.
+    [] Botão para adicionar novos anúncios com os seguintes campos (imagem, marca, modelo, ano, valor, cidade)
 
 # Tela Detalhes do Carro:
   - Elementos:

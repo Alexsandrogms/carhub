@@ -1,0 +1,21 @@
+export const brands = [
+  { id: 1, name: 'Chevrolet', imagePath: require('../assets/chevrolet.png') },
+  { id: 2, name: 'Volkswagen', imagePath: require('../assets/volkswagen.png') },
+  { id: 3, name: 'Fiat', imagePath: require('../assets/fiat.png') },
+  { id: 4, name: 'Ford', imagePath: require('../assets/ford.png') },
+  { id: 5, name: 'Toyota', imagePath: require('../assets/toyota.png') },
+  { id: 6, name: 'Honda', imagePath: require('../assets/honda.png') },
+  { id: 7, name: 'Nissan', imagePath: require('../assets/nissan.png') },
+  { id: 8, name: 'Hyundai', imagePath: require('../assets/hyundai.png') },
+  { id: 9, name: 'Renault', imagePath: require('../assets/renault.png') },
+  { id: 10, name: 'Peugeot', imagePath: require('../assets/peugeot.png') },
+  { id: 11, name: 'Citroën', imagePath: require('../assets/citroen.png') },
+  { id: 12, name: 'Jeep', imagePath: require('../assets/jeep.png') },
+  {
+    id: 13,
+    name: 'Mercedes-Benz',
+    imagePath: require('../assets/mercedes-benz.png'),
+  },
+  { id: 14, name: 'BMW', imagePath: require('../assets/bmw.png') },
+  { id: 15, name: 'Audi', imagePath: require('../assets/audi.png') },
+]
