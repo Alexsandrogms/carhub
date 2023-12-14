@@ -1,16 +1,10 @@
 import { View, Image, Text } from 'react-native'
 import { formatPrice } from '../utils/format-price'
+import { Link } from '@react-navigation/native'
+import { ICar } from '../types/car'
 
 export interface CarItemProps {
-  item: {
-    id: number
-    model: string
-    image: string
-    brand: string
-    value: number
-    year: number
-    city: string
-  }
+  item: ICar
 }
 
 export function CarItem({ item }: CarItemProps) {
@@ -37,7 +31,9 @@ export function CarItem({ item }: CarItemProps) {
           <Text className="font-semibold text-base text-black">
             {formatPrice(item.value)}
           </Text>
-          <Text className="text-blue-400 font-semibold">Detalhes</Text>
+          <Link to={{ screen: 'MoreDetails', params: item }}>
+            <Text className="text-blue-400 font-semibold">Detalhes</Text>
+          </Link>
         </View>
       </View>
     </View>

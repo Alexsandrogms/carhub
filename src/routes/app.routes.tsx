@@ -1,11 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Home } from '../pages/Home'
+import { MoreDetails } from '../pages/MoreDetails'
+import { ICar } from '../types/car'
 
-export type RootStackParamList = {
+export type AppStackParamList = {
   Home: undefined
+  MoreDetails: ICar
 }
 
-const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>()
+const { Navigator, Screen } = createNativeStackNavigator<AppStackParamList>()
 
 export function AppRoutes() {
   return (
@@ -15,6 +18,7 @@ export function AppRoutes() {
       }}
     >
       <Screen name="Home" component={Home} />
+      <Screen name="MoreDetails" component={MoreDetails} />
     </Navigator>
   )
 }

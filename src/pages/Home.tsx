@@ -16,8 +16,9 @@ const adverts = [
       'https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info',
     brand: 'Chevrolet',
     value: 82490,
-    year: 2023,
-    city: '',
+    year: '2023',
+    city: 'Santana, Bahia',
+    km: 1000,
   },
   {
     id: 2,
@@ -26,8 +27,9 @@ const adverts = [
       'https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info',
     brand: 'Chevrolet',
     value: 82490,
-    year: 2023,
-    city: '',
+    year: '2023',
+    city: 'Santana, Bahia',
+    km: 1000,
   },
   {
     id: 3,
@@ -36,8 +38,9 @@ const adverts = [
       'https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info',
     brand: 'Chevrolet',
     value: 82490,
-    year: 2023,
-    city: '',
+    year: '2023',
+    city: 'Santana, Bahia',
+    km: 1000,
   },
 ]
 

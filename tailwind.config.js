@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         overlay: 'rgba(0,0,0,0.7)',
+        ice: '#FAFAFA',
+        'dark-green': '#00B37E',
       },
     },
   },

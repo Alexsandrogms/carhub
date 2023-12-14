@@ -3,13 +3,13 @@ import { GetStarted } from '../pages/GetStarted'
 import { SignIn } from '../pages/SignIn'
 import { SignOut } from '../pages/SignOut'
 
-export type RootStackParamList = {
+export type AuthStackParamList = {
   GetStarted: undefined
   SignIn: undefined
   SignOut: undefined
 }
 
-const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>()
+const { Navigator, Screen } = createNativeStackNavigator<AuthStackParamList>()
 
 export function AuthRoutes() {
   return (

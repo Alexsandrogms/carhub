@@ -72,7 +72,7 @@ export function CreateAnnouncementModal({
             backgroundColor: 'rgba(0,0,0,0.7)',
           }}
         >
-          <View className="w-full h-[600px] bg-white rounded-md px-2">
+          <View className="w-full h-[650px] bg-white rounded-md px-2">
             <TouchableWithoutFeedback onPress={handleContentPress}>
               <View className="flex-1 flex justify-around p-4">
                 <Text className="font-bold text-2xl text-center my-4">
@@ -110,6 +110,11 @@ export function CreateAnnouncementModal({
                   title="Valor"
                   value={price}
                   onChangeText={(e) => setPrice(e)}
+                />
+                <Input
+                  title="Quilometragem"
+                  value={city}
+                  onChangeText={(e) => setCity(e)}
                 />
                 <Input
                   title="Cidade"
