@@ -29,7 +29,7 @@ export function CarItem({ item }: CarItemProps) {
 
         <View className="flex-row justify-between items-center mt-2">
           <Text className="font-semibold text-base text-black">
-            {formatPrice(item.value)}
+            {formatPrice(item.price)}
           </Text>
           <Link to={{ screen: 'MoreDetails', params: item }}>
             <Text className="text-blue-400 font-semibold">Detalhes</Text>

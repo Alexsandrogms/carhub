@@ -3,7 +3,7 @@ export type ICar = {
   model: string
   image: string
   brand: string
-  value: number
+  price: number
   year: string
   km: number
   city: string

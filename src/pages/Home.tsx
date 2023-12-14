@@ -132,7 +132,10 @@ export function Home() {
 
       <CreateAnnouncementModal
         isOpen={isOpenAnnouncementModal}
-        closeModal={() => setIsOpenAnnouncementModal(false)}
+        closeModal={() => {
+          setIsOpenAnnouncementModal(false)
+          fetchCarsAdverts()
+        }}
       />
     </>
   )

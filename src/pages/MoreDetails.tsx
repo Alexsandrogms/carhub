@@ -67,7 +67,7 @@ export function MoreDetails({ route }: MoreDetailsProps) {
           <View>
             <Text className="text-base text-black">Preço total</Text>
             <Text className="text-lg text-green-500 font-semibold">
-              {formatPrice(car.value)}
+              {formatPrice(car.price)}
             </Text>
           </View>
 

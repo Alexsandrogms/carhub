@@ -11,10 +11,9 @@
     {
       "id": 1,
       "model": "Gol",
-      "image":
-        "https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info",
+      "image": "https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info",
       "brand": "Chevrolet",
-      "value": 82490,
+      "price": 82490,
       "year": "2023",
       "city": "Santana, Bahia",
       "km": 1000
@@ -22,10 +21,9 @@
     {
       "id": 2,
       "model": "Jetta",
-      "image":
-        "https://cdn.motor1.com/images/mgl/qkog2J/s1/vw-jetta-gli-2023-br.webp",
+      "image": "https://cdn.motor1.com/images/mgl/qkog2J/s1/vw-jetta-gli-2023-br.webp",
       "brand": "Volkswagen",
-      "value":  224638,
+      "price": 224638,
       "year": "2023",
       "city": "Osasco, Sao Paulo",
       "km": 0
@@ -33,13 +31,22 @@
     {
       "id": 3,
       "model": "Cruze",
-      "image":
-        "https://t.ctcdn.com.br/QhfYFs5meG18H54RpL2Cxa5FkBA=/1024x576/smart/i356205.jpeg",
+      "image": "https://t.ctcdn.com.br/QhfYFs5meG18H54RpL2Cxa5FkBA=/1024x576/smart/i356205.jpeg",
       "brand": "Chevrolet",
-      "value":  100000,
+      "price": 100000,
       "year": "2023",
       "city": "Brasilia, Distrito Federal",
       "km": 20000
+    },
+    {
+      "image": "file:///var/mobile/Containers/Data/Application/72DECEE7-540A-44FF-8301-F7F6D7384AB8/Library/Caches/ExponentExperienceData/%2540anonymous%252Fcarhub-99e149ef-62ee-42db-877b-354c8697e3a2/ImagePicker/D453008C-AB61-4110-91F0-088F7DC827ED.jpg",
+      "brand": "Chevrolet",
+      "model": "Onix",
+      "year": "2020",
+      "price": 40000,
+      "km": 60000,
+      "city": "Brasília, DF",
+      "id": 4
     }
   ]
 }
