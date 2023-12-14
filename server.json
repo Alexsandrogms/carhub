@@ -6,5 +6,40 @@
       "password": "12345678",
       "id": 1
     }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "model": "Gol",
+      "image":
+        "https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info",
+      "brand": "Chevrolet",
+      "value": 82490,
+      "year": "2023",
+      "city": "Santana, Bahia",
+      "km": 1000
+    },
+    {
+      "id": 2,
+      "model": "Jetta",
+      "image":
+        "https://cdn.motor1.com/images/mgl/qkog2J/s1/vw-jetta-gli-2023-br.webp",
+      "brand": "Volkswagen",
+      "value":  224638,
+      "year": "2023",
+      "city": "Osasco, Sao Paulo",
+      "km": 0
+    },
+    {
+      "id": 3,
+      "model": "Cruze",
+      "image":
+        "https://t.ctcdn.com.br/QhfYFs5meG18H54RpL2Cxa5FkBA=/1024x576/smart/i356205.jpeg",
+      "brand": "Chevrolet",
+      "value":  100000,
+      "year": "2023",
+      "city": "Brasilia, Distrito Federal",
+      "km": 20000
+    }
   ]
 }

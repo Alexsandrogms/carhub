@@ -2,55 +2,23 @@ import { useEffect, useState } from 'react'
 import { FlatList, Text, View, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
+import { ICar } from '../types/car'
+import { api } from '../services/api'
+import { useAuth } from '../hooks/use-auth'
+import { brands } from '../constants/brands'
 import { CarItem } from '../components/CarItem'
 import { Container } from '../components/Container'
-import { brands } from '../constants/brands'
 import { BrandItem } from '../components/BrandItem'
+import { CartItemSkeleton } from '../components/CarItemSkeleton'
 import { CreateAnnouncementModal } from '../components/CreateAnnouncementModal'
-import { useAuth } from '../hooks/use-auth'
-
-const adverts = [
-  {
-    id: 1,
-    model: 'Gol',
-    image:
-      'https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info',
-    brand: 'Chevrolet',
-    value: 82490,
-    year: '2023',
-    city: 'Santana, Bahia',
-    km: 1000,
-  },
-  {
-    id: 2,
-    model: 'Gol',
-    image:
-      'https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info',
-    brand: 'Chevrolet',
-    value: 82490,
-    year: '2023',
-    city: 'Santana, Bahia',
-    km: 1000,
-  },
-  {
-    id: 3,
-    model: 'Gol',
-    image:
-      'https://quatrorodas.abril.com.br/wp-content/uploads/2020/08/chevrolet-onix-auto-deportivo-exterior-luces-traseras-1-e1597773829329.jpg?quality=70&strip=info',
-    brand: 'Chevrolet',
-    value: 82490,
-    year: '2023',
-    city: 'Santana, Bahia',
-    km: 1000,
-  },
-]
 
 export function Home() {
   const { user } = useAuth()
 
-  const [isOpenAnnouncementModal, setIsOpenAnnouncementModal] = useState(false)
+  const [fetchLoading, setFetchLoading] = useState<boolean>(false)
+  const [carsAdverts, setCarsAdverts] = useState<ICar[]>([])
   const [brandSelected, setBrandSelected] = useState<string>('')
-  const [carsAdverts, setCarsAdverts] = useState(adverts)
+  const [isOpenAnnouncementModal, setIsOpenAnnouncementModal] = useState(false)
 
   function handleSelectBrand(brandValue: string) {
     setBrandSelected((prevState) =>
@@ -58,13 +26,39 @@ export function Home() {
     )
   }
 
-  useEffect(() => {
-    if (brandSelected) {
-      const advertsFiltered = adverts.filter(
-        (state) => state.brand.toUpperCase() === brandSelected.toUpperCase(),
-      )
+  async function fetchCarsAdverts() {
+    setFetchLoading(true)
+    try {
+      const { data } = await api.get('/cars')
 
-      setCarsAdverts(advertsFiltered)
+      setCarsAdverts(data)
+    } catch {
+    } finally {
+      setFetchLoading(false)
+    }
+  }
+
+  async function fetchCarsAdvertsByBrand(brand: string) {
+    setFetchLoading(true)
+    try {
+      const { data } = await api.get(`/cars?brand=${brand}`)
+      setCarsAdverts(data)
+    } catch {
+    } finally {
+      setFetchLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchCarsAdverts()
+  }, [])
+
+  useEffect(() => {
+    setCarsAdverts([])
+    if (brandSelected) {
+      fetchCarsAdvertsByBrand(brandSelected)
+    } else {
+      fetchCarsAdverts()
     }
   }, [brandSelected])
 
@@ -117,15 +111,22 @@ export function Home() {
             </TouchableOpacity>
           </View>
 
-          <FlatList
-            contentContainerStyle={{
-              paddingBottom: 50,
-            }}
-            data={carsAdverts}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <CarItem item={item} />}
-          />
+          {!fetchLoading ? (
+            <FlatList
+              contentContainerStyle={{
+                paddingBottom: 50,
+              }}
+              data={carsAdverts}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => <CarItem item={item} />}
+            />
+          ) : (
+            <>
+              <CartItemSkeleton />
+              <CartItemSkeleton />
+            </>
+          )}
         </View>
       </Container>
 
