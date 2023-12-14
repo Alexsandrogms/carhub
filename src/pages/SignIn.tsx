@@ -1,4 +1,7 @@
+import { useNavigation } from '@react-navigation/native'
+import { useState } from 'react'
 import {
+  Alert,
   GestureResponderEvent,
   Keyboard,
   Text,
@@ -6,21 +9,75 @@ import {
   View,
 } from 'react-native'
 
+import { ButtonLoading } from '../components/Buttons/Loading'
 import { Container } from '../components/Container'
-import { Logo } from '../components/Logo'
 import { Input } from '../components/Inputs/Default'
 import { PasswordInput } from '../components/Inputs/Password'
-import { ButtonLoading } from '../components/Buttons/Loading'
-import { useNavigation } from '@react-navigation/native'
+import { Logo } from '../components/Logo'
+import { z } from 'zod'
+import { api } from '../services/api'
+
+const signInSchema = z.object({
+  email: z.string().email({
+    message: 'E-mail invalido',
+  }),
+  password: z.string().min(8, 'A senha deve conter pelo menos 8 caracteres'),
+})
+
+type Error = {
+  [x: string]: string
+}
 
 export function SignIn() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const navigate = useNavigation<any>().navigate
+
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
+  const [errors, setErrors] = useState<Error | null>(null)
+
   function handleContentPress(e: GestureResponderEvent) {
     Keyboard.dismiss()
     e.stopPropagation()
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const navigate = useNavigation<any>().navigate
+  async function handleLogin() {
+    setLoading(true)
+    try {
+      const payload = signInSchema.safeParse({ email, password })
+
+      if (!payload.success) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        Object.entries(payload.error.issues).forEach(([_, issue]) => {
+          setErrors((prevState) => ({
+            ...prevState,
+            [issue.path[0]]: issue.message,
+          }))
+        })
+        return
+      }
+
+      const result = await api.get(`/users?${email}&${password}`)
+
+      if (!result.data.length) {
+        Alert.alert('E-mail or password incorrect!')
+      }
+    } catch (err) {
+      console.log(err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  function removeError(input: string) {
+    if (!errors) return
+
+    const newObject = { ...errors }
+    newObject[input] = ''
+
+    setErrors(newObject)
+  }
 
   function handleNavigateToSignOut() {
     navigate('SignOut')
@@ -36,11 +93,33 @@ export function SignIn() {
           </Text>
 
           <View className="mt-4 w-full justify-center">
-            <Input title="E-mail" />
-            <PasswordInput title="Senha" />
+            <Input
+              title="E-mail"
+              value={email}
+              placeholder="Exp: joh-doe@contato.com"
+              onChangeText={(text) => {
+                setEmail(text)
+                removeError('email')
+              }}
+              error={errors?.email}
+            />
+            <PasswordInput
+              title="Senha"
+              value={password}
+              placeholder="*********"
+              onChangeText={(text) => {
+                setPassword(text)
+                removeError('password')
+              }}
+              error={errors?.password}
+            />
 
             <View className="mt-5" />
-            <ButtonLoading text="Entrar" isLoading={false} />
+            <ButtonLoading
+              text="Entrar"
+              isLoading={loading}
+              onPress={handleLogin}
+            />
           </View>
 
           <View className="absolute bottom-0 flex-row">

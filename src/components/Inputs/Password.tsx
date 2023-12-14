@@ -10,10 +10,12 @@ import { Ionicons } from '@expo/vector-icons'
 
 interface InputProps extends TextInputProps {
   title: string
+  error?: string | null
 }
 
-export function PasswordInput({ title, ...rest }: InputProps) {
+export function PasswordInput({ title, error, ...rest }: InputProps) {
   const [isVisiblePassword, setVisiblePassword] = useState<boolean>(false)
+  const borderWithErrorStyle = error ? 'border-red-400' : 'border-gray-400'
 
   function toggleVisiblePassword() {
     setVisiblePassword((prevState) => !prevState)
@@ -21,12 +23,21 @@ export function PasswordInput({ title, ...rest }: InputProps) {
 
   return (
     <View className="my-5">
-      <Text className="text-gray-500 font-semibold mb-2">{title}</Text>
+      <View className="flex-row justify-between">
+        <Text className="text-gray-700 font-semibold mb-2">{title}</Text>
+        <Text
+          numberOfLines={2}
+          className="text-sm w-52 text-right text-red-500 font-light mr-1"
+        >
+          {error}
+        </Text>
+      </View>
+
       <View className="flex flex-row relative">
         <TextInput
           {...rest}
           secureTextEntry={!isVisiblePassword}
-          className="w-full border border-gray-400 rounded-md p-3"
+          className={`w-full border rounded-md p-3 ${borderWithErrorStyle}`}
         />
 
         <TouchableOpacity
