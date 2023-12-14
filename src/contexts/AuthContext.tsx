@@ -25,6 +25,7 @@ type AuthContextData = {
   isAuthenticated: boolean
   signIn: (data: SignInParams) => Promise<void>
   signUp: (data: SignUpParams) => Promise<void>
+  signOut: () => Promise<void>
 }
 
 export const AuthContext = createContext({} as AuthContextData)
@@ -53,6 +54,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     await api.post('/users', { name, email, password })
   }
 
+  async function signOut() {
+    await AsyncStorage.removeItem('hasAuthenticated')
+    setIsAuthenticated(false)
+  }
+
   async function validateHasAuthenticated() {
     const result = await AsyncStorage.getItem('hasAuthenticated')
 
@@ -74,6 +80,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         isAuthenticated,
         signIn,
         signUp,
+        signOut,
       }}
     >
       {children}

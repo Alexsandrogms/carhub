@@ -13,7 +13,7 @@ import { CartItemSkeleton } from '../components/CarItemSkeleton'
 import { CreateAnnouncementModal } from '../components/CreateAnnouncementModal'
 
 export function Home() {
-  const { user } = useAuth()
+  const { user, signOut } = useAuth()
 
   const [fetchLoading, setFetchLoading] = useState<boolean>(false)
   const [carsAdverts, setCarsAdverts] = useState<ICar[]>([])
@@ -76,7 +76,7 @@ export function Home() {
             </Text>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={signOut}>
             <Ionicons name="exit-outline" size={30} color="black" />
           </TouchableOpacity>
         </View>
