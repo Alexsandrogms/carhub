@@ -7,6 +7,7 @@ import { Container } from '../components/Container'
 import { brands } from '../constants/brands'
 import { BrandItem } from '../components/BrandItem'
 import { CreateAnnouncementModal } from '../components/CreateAnnouncementModal'
+import { useAuth } from '../hooks/use-auth'
 
 const adverts = [
   {
@@ -45,6 +46,8 @@ const adverts = [
 ]
 
 export function Home() {
+  const { user } = useAuth()
+
   const [isOpenAnnouncementModal, setIsOpenAnnouncementModal] = useState(false)
   const [brandSelected, setBrandSelected] = useState<string>('')
   const [carsAdverts, setCarsAdverts] = useState(adverts)
@@ -73,13 +76,10 @@ export function Home() {
             <Ionicons name="person-circle-outline" size={54} />
           </View>
           <View className="flex-1 px-4">
-            <Text className="text-gray-400 text-base">Alexsandro Gomes</Text>
+            <Text className="text-gray-500 text-base">{user?.name}</Text>
             <Text className="text-black font-semibold text-xl">
               Bem vindo de volta
             </Text>
-          </View>
-          <View>
-            <Ionicons name="notifications" size={24} color="black" />
           </View>
         </View>
 

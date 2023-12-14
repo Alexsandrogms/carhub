@@ -8,14 +8,14 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native'
+import { z } from 'zod'
 
 import { ButtonLoading } from '../components/Buttons/Loading'
 import { Container } from '../components/Container'
 import { Input } from '../components/Inputs/Default'
 import { PasswordInput } from '../components/Inputs/Password'
 import { Logo } from '../components/Logo'
-import { z } from 'zod'
-import { api } from '../services/api'
+import { useAuth } from '../hooks/use-auth'
 
 const signInSchema = z.object({
   email: z.string().email({
@@ -24,7 +24,7 @@ const signInSchema = z.object({
   password: z.string().min(8, 'A senha deve conter pelo menos 8 caracteres'),
 })
 
-type Error = {
+type InputErrors = {
   [x: string]: string
 }
 
@@ -32,10 +32,12 @@ export function SignIn() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const navigate = useNavigation<any>().navigate
 
+  const { signIn } = useAuth()
+
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
-  const [errors, setErrors] = useState<Error | null>(null)
+  const [errors, setErrors] = useState<InputErrors | null>(null)
 
   function handleContentPress(e: GestureResponderEvent) {
     Keyboard.dismiss()
@@ -58,13 +60,11 @@ export function SignIn() {
         return
       }
 
-      const result = await api.get(`/users?${email}&${password}`)
-
-      if (!result.data.length) {
-        Alert.alert('E-mail or password incorrect!')
-      }
+      await signIn(payload.data)
     } catch (err) {
       console.log(err)
+
+      Alert.alert('E-mail or password incorrect!')
     } finally {
       setLoading(false)
     }
