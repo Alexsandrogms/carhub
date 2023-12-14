@@ -20,16 +20,13 @@
     [x] Barra de pesquisa para filtrar carros por marca.
     [x] Lista de carros com informações básicas (imagem, modelo, ano, preço).
     [x] Botões para acessar informações detalhadas do carro.
-    [] Botão para adicionar novos anúncios com os seguintes campos (imagem, marca, modelo, ano, valor, cidade)
+    [x] Botão para adicionar novos anúncios com os seguintes campos (imagem, marca, modelo, ano, valor, cidade)
 
 # Tela Detalhes do Carro:
   - Elementos:
-    [] Imagens do carro em destaque.
-    [] Informações detalhadas do carro (modelo, ano, preço, quilometragem, etc.).
-    [] Descrição do carro.
-    [] Botões para solicitar mais informações ou iniciar uma conversa com o vendedor.
-    [] Botão para salvar o carro como favorito.
-    [] Possibilidade de navegar para mais imagens ou seções detalhadas.
+    [x] Imagens do carro em destaque.
+    [x] Informações detalhadas do carro (modelo, ano, preço, quilometragem, etc.).
+    [x] Botões para solicitar mais informações ou iniciar uma conversa com o vendedor.
 
 # Fluxo de Interação:
   - Login/Registro:

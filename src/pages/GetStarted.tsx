@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { Image, Text, View } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import CarImg from '../assets/car.png'
 import { Button } from '../components/Buttons/Default'
@@ -14,6 +16,30 @@ export function GetStarted() {
     navigate('SignIn')
   }
 
+  async function persistUserHasAlreadyStarted() {
+    try {
+      await AsyncStorage.setItem('already-started', new Date().toISOString())
+      handleNavigateToLogin()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async function getStoredUserHasAlreadyStarted() {
+    try {
+      const result = await AsyncStorage.getItem('already-started')
+
+      if (result) handleNavigateToLogin()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getStoredUserHasAlreadyStarted()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <Container>
       <View className="flex-1 pt-10">
@@ -27,7 +53,7 @@ export function GetStarted() {
         <Image source={CarImg} alt="Carro branco" />
       </View>
 
-      <Button title="Get Started" onPress={handleNavigateToLogin} />
+      <Button title="Get Started" onPress={persistUserHasAlreadyStarted} />
     </Container>
   )
 }

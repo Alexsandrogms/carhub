@@ -1,15 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native'
 
 import { AppRoutes } from './app.routes'
-
-export type RootStackParamList = {
-  GetStarted: undefined
-}
+import { AuthRoutes } from './auth.routes'
 
 export function Routes() {
+  const isAuthenticated = false
+
   return (
     <NavigationContainer>
-      <AppRoutes />
+      {isAuthenticated ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   )
 }
