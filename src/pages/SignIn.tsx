@@ -79,8 +79,8 @@ export function SignIn() {
     setErrors(newObject)
   }
 
-  function handleNavigateToSignOut() {
-    navigate('SignOut')
+  function handleNavigateToSignUp() {
+    navigate('SignUp')
   }
 
   return (
@@ -124,7 +124,7 @@ export function SignIn() {
 
           <View className="absolute bottom-0 flex-row">
             <Text>Não é registrado?</Text>
-            <Text className="ml-1 font-bold" onPress={handleNavigateToSignOut}>
+            <Text className="ml-1 font-bold" onPress={handleNavigateToSignUp}>
               Crie uma conta
             </Text>
           </View>

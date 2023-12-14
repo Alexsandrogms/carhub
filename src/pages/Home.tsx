@@ -75,6 +75,10 @@ export function Home() {
               Bem vindo de volta
             </Text>
           </View>
+
+          <TouchableOpacity>
+            <Ionicons name="exit-outline" size={30} color="black" />
+          </TouchableOpacity>
         </View>
 
         <View className="flex-1 w-full h-full mt-5">

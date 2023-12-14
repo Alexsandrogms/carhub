@@ -22,7 +22,7 @@ type InputErrors = {
   [x: string]: string
 }
 
-const signOutSchema = z.object({
+const signUpSchema = z.object({
   name: z
     .string({
       invalid_type_error: 'Nome invalido!',
@@ -35,9 +35,9 @@ const signOutSchema = z.object({
   password: z.string().min(8, 'A senha deve conter pelo menos 8 caracteres'),
 })
 
-export function SignOut() {
+export function SignUp() {
   const navigate = useNavigation()
-  const { signOut } = useAuth()
+  const { signUp } = useAuth()
 
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -53,7 +53,7 @@ export function SignOut() {
   async function handleCreateAccount() {
     setLoading(true)
     try {
-      const payload = signOutSchema.safeParse({ name, email, password })
+      const payload = signUpSchema.safeParse({ name, email, password })
 
       if (!payload.success) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -66,7 +66,7 @@ export function SignOut() {
         return
       }
 
-      await signOut(payload.data)
+      await signUp(payload.data)
 
       Alert.alert(
         'Usuário criado com sucesso!',

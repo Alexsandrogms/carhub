@@ -8,7 +8,7 @@ type SignInParams = {
   password: string
 }
 
-type SignOutParams = {
+type SignUpParams = {
   name: string
   email: string
   password: string
@@ -24,7 +24,7 @@ type AuthContextData = {
   user?: User | null
   isAuthenticated: boolean
   signIn: (data: SignInParams) => Promise<void>
-  signOut: (data: SignOutParams) => Promise<void>
+  signUp: (data: SignUpParams) => Promise<void>
 }
 
 export const AuthContext = createContext({} as AuthContextData)
@@ -49,7 +49,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsAuthenticated(true)
   }
 
-  async function signOut({ name, email, password }: SignOutParams) {
+  async function signUp({ name, email, password }: SignUpParams) {
     await api.post('/users', { name, email, password })
   }
 
@@ -73,7 +73,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         user,
         isAuthenticated,
         signIn,
-        signOut,
+        signUp,
       }}
     >
       {children}
