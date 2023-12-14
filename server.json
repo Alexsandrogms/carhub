@@ -1,12 +1,5 @@
 {
-  "users": [
-    {
-      "name": "John Doe",
-      "email": "johndoe@contato.com",
-      "password": "12345678",
-      "id": 1
-    }
-  ],
+  "users": [],
   "cars": [
     {
       "id": 1,
@@ -37,16 +30,6 @@
       "year": "2023",
       "city": "Brasilia, Distrito Federal",
       "km": 20000
-    },
-    {
-      "image": "file:///var/mobile/Containers/Data/Application/72DECEE7-540A-44FF-8301-F7F6D7384AB8/Library/Caches/ExponentExperienceData/%2540anonymous%252Fcarhub-99e149ef-62ee-42db-877b-354c8697e3a2/ImagePicker/D453008C-AB61-4110-91F0-088F7DC827ED.jpg",
-      "brand": "Chevrolet",
-      "model": "Onix",
-      "year": "2020",
-      "price": 40000,
-      "km": 60000,
-      "city": "Brasília, DF",
-      "id": 4
     }
   ]
 }

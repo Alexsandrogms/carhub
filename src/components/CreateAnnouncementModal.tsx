@@ -112,8 +112,7 @@ export function CreateAnnouncementModal({
         'Agora visualize seu anuncio com os demais.',
         [{ text: 'OK', onPress: () => closeModal() }],
       )
-    } catch (err) {
-      console.log(err)
+    } catch {
     } finally {
       setLoading(false)
     }

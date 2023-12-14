@@ -17,22 +17,14 @@ export function GetStarted() {
   }
 
   async function persistUserHasAlreadyStarted() {
-    try {
-      await AsyncStorage.setItem('already-started', new Date().toISOString())
-      handleNavigateToLogin()
-    } catch (err) {
-      console.log(err)
-    }
+    await AsyncStorage.setItem('already-started', new Date().toISOString())
+    handleNavigateToLogin()
   }
 
   async function getStoredUserHasAlreadyStarted() {
-    try {
-      const result = await AsyncStorage.getItem('already-started')
+    const result = await AsyncStorage.getItem('already-started')
 
-      if (result) handleNavigateToLogin()
-    } catch (err) {
-      console.log(err)
-    }
+    if (result) handleNavigateToLogin()
   }
 
   useEffect(() => {

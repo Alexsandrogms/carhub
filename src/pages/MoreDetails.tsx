@@ -21,14 +21,8 @@ export function MoreDetails({ route }: MoreDetailsProps) {
 
     const url = `whatsapp://send?phone=${phonePrefix}${phoneNumber}&text=${message}`
 
-    try {
-      Linking.openURL(url)
-    } catch (err) {
-      console.log(err)
-    }
+    Linking.openURL(url)
   }
-
-  console.log(car)
 
   return (
     <Container>

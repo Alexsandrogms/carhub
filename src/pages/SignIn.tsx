@@ -61,9 +61,7 @@ export function SignIn() {
       }
 
       await signIn(payload.data)
-    } catch (err) {
-      console.log(err)
-
+    } catch {
       Alert.alert('E-mail or password incorrect!')
     } finally {
       setLoading(false)

@@ -73,9 +73,7 @@ export function SignUp() {
         'Realize o login, e tenha acesso a todos os anúncios',
         [{ text: 'OK', onPress: () => navigate.goBack() }],
       )
-    } catch (err) {
-      console.log(err)
-
+    } catch {
       Alert.alert('Ocorreu um erro ao tentar criar usuário.')
     } finally {
       setLoading(false)

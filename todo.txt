@@ -34,10 +34,7 @@
 
   - Explorar Carros:
     [x] Na tela home, os usuários podem navegar pelos carros disponíveis usando filtros e ordenações.
-    [] Usuário poderá adicionar novos anúncios.
+    [x] Usuário poderá adicionar novos anúncios.
 
   - Detalhes do Carro:
-    [] Ao clicar em um carro, os usuários acessam a tela detalhada para obter informações mais profundas e entrar em contato com o vendedor.
-
-  - Interagir com Anúncios:
-    [] Os usuários podem salvar carros favoritos, enviar mensagens aos vendedores ou compartilhar anúncios.
+    [x] Ao clicar em um carro, os usuários acessam a tela detalhada para obter informações mais profundas e entrar em contato com o vendedor.
